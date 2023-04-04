@@ -8,13 +8,37 @@ not allocate any memory unexpectedly the `safelog.log` functions accept `bytes32
 of `string`s as they are kept on the stack. This means that the string part of log messages will
 have to be resricted to 32-character chunks.
 
+
+## Installation
+
+### Foundry
+
+1. Install the library
+
+```
+forge install philogy/forge-safe-log --no-commit
+```
+
+2. Just import the lib and use:
+
 **Example:**
 ```solidity
 import {safelog} from "forge-safe-log/safelog.sol";
 
-// Your function
+// Some example uses
 safelog.log("My number: %d", 34);
+safelog.log("Caller: %s", msg.sender);
+safelog.log("Where in loop %d-%d", i, j);
 ```
+
+### Hardhat
+
+1. Install Foundry (I mean come on it's 2023)
+2. Check Foundry installation instructions
+
+### Truffle
+
+Lmao ngmi. (Jk just install Hardhat and then check Hardhat installation instructions)
 
 ## Caveats
 - `safelog.log` functions **may** increase `msize` if `msize < 0x1a0`
