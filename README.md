@@ -1,11 +1,11 @@
 # Foundry Safer Log
 
-The [`safelog`](src/safelog.sol) provides a foundry/hardhat like console logging interface whereby
+The [`safelog`](src/safelog.sol) library provides a foundry/hardhat like console logging interface whereby
 the individual `log` functions **do not** modify the state of memory. This is important for
 debugging low-level assembly that may touch on and rely on the free memory pointer and the
 consistent state of memory beyond the free memory pointer. To ensure that the Solidity compiler does
 not allocate any memory unexpectedly the `safelog.log` functions accept `bytes32` arguments instead
-of `strings` as they are kept on the stack. This means that the string part of log messages will
+of `string`s as they are kept on the stack. This means that the string part of log messages will
 have to be resricted to 32-character chunks.
 
 **Example:**
