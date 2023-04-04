@@ -6,22 +6,22 @@ import {safelog} from "src/safelog.sol";
 
 /// @author philogy <https://github.com/philogy>
 contract safelogTest is Test {
-    function setUp() public {}
-
-    function testFindsLength(string memory str) public {
-        uint256 len = bytes(str).length;
-        vm.assume(len <= 0x20);
-        for (uint256 i; i < len; i++) {
-            vm.assume(bytes(str)[i] != hex"00");
+    function testLog() public {
+        uint[] memory wordsBefore = new uint[](32);
+        for (uint i; i < wordsBefore.length; i++) {
+            uint word;
+            assembly {
+                word := mload(mul(i, 0x20))
+            }
+            wordsBefore[i] = word;
         }
-        assertEq(len, safelog.length(bytes32(bytes(str))));
-    }
-
-    function testEmptyLength() public {
-        assertEq(safelog.length(bytes32(0)), 0);
-    }
-
-    function testEarlyLengthCutoff() public {
-        assertEq(safelog.length(bytes32(hex"1122334400ffffffffffffffffffffffffffffffffffffffffffffffffffffff")), 4);
+        safelog.log("hello (%s)", 30);
+        for (uint i; i < wordsBefore.length; i++) {
+            uint word;
+            assembly {
+                word := mload(mul(i, 0x20))
+            }
+            assertEq(wordsBefore[i], word);
+        }
     }
 }
