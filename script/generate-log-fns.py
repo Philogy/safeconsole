@@ -81,9 +81,11 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
                 f'let m{i} := mload(0x{0x20 * i:x})\n'
                 for i in range(total_words)
             ), 2)
-        sig = keccak256(f'log({",".join(sig_args)})'.encode())[:4].hex()
+        sig = f'log({",".join(sig_args)})'
+        selector = keccak256(sig.encode())[:4].hex()
         param_writes = indent(
-            ''.join([f'mstore(0x00, 0x{sig})\n'] + params),
+            f'// Selector of `{sig}`.\nmstore(0x00, 0x{selector})\n'
+            + ''.join(params),
             2
         )
         str_writes = indent(
