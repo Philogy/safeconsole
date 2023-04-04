@@ -8,39 +8,39 @@ library safelog {
 
     function log(address p0) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             // Selector of `log(address)`.
             mstore(0x00, 0x2c2ecbc2)
             mstore(0x20, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x24, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
         }
     }
 
     function log(bool p0) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             // Selector of `log(bool)`.
             mstore(0x00, 0x32458eed)
             mstore(0x20, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x24, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
         }
     }
 
     function log(uint256 p0) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             // Selector of `log(uint256)`.
             mstore(0x00, 0xf82c50f1)
             mstore(0x20, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x24, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
         }
     }
@@ -54,7 +54,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -63,7 +63,7 @@ library safelog {
             mstore(0x20, 0x20)
             writeString(0x40, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -72,7 +72,7 @@ library safelog {
 
     function log(address p0, address p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(address,address)`.
@@ -80,7 +80,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -88,7 +88,7 @@ library safelog {
 
     function log(address p0, bool p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(address,bool)`.
@@ -96,7 +96,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -104,7 +104,7 @@ library safelog {
 
     function log(address p0, uint256 p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(address,uint256)`.
@@ -112,7 +112,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -127,7 +127,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -138,7 +138,7 @@ library safelog {
             mstore(0x40, 0x40)
             writeString(0x60, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -148,7 +148,7 @@ library safelog {
 
     function log(bool p0, address p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(bool,address)`.
@@ -156,7 +156,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -164,7 +164,7 @@ library safelog {
 
     function log(bool p0, bool p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(bool,bool)`.
@@ -172,7 +172,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -180,7 +180,7 @@ library safelog {
 
     function log(bool p0, uint256 p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(bool,uint256)`.
@@ -188,7 +188,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -203,7 +203,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -214,7 +214,7 @@ library safelog {
             mstore(0x40, 0x40)
             writeString(0x60, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -224,7 +224,7 @@ library safelog {
 
     function log(uint256 p0, address p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(uint256,address)`.
@@ -232,7 +232,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -240,7 +240,7 @@ library safelog {
 
     function log(uint256 p0, bool p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(uint256,bool)`.
@@ -248,7 +248,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -256,7 +256,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             // Selector of `log(uint256,uint256)`.
@@ -264,7 +264,7 @@ library safelog {
             mstore(0x20, p0)
             mstore(0x40, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x44, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
         }
@@ -279,7 +279,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -290,7 +290,7 @@ library safelog {
             mstore(0x40, 0x40)
             writeString(0x60, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -307,7 +307,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -318,7 +318,7 @@ library safelog {
             mstore(0x40, p1)
             writeString(0x60, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -335,7 +335,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -346,7 +346,7 @@ library safelog {
             mstore(0x40, p1)
             writeString(0x60, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -363,7 +363,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -374,7 +374,7 @@ library safelog {
             mstore(0x40, p1)
             writeString(0x60, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -391,7 +391,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -405,7 +405,7 @@ library safelog {
             writeString(0x60, p0)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -417,7 +417,7 @@ library safelog {
 
     function log(address p0, address p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -427,7 +427,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -436,7 +436,7 @@ library safelog {
 
     function log(address p0, address p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -446,7 +446,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -455,7 +455,7 @@ library safelog {
 
     function log(address p0, address p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -465,7 +465,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -481,7 +481,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -494,7 +494,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -505,7 +505,7 @@ library safelog {
 
     function log(address p0, bool p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -515,7 +515,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -524,7 +524,7 @@ library safelog {
 
     function log(address p0, bool p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -534,7 +534,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -543,7 +543,7 @@ library safelog {
 
     function log(address p0, bool p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -553,7 +553,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -569,7 +569,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -582,7 +582,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -593,7 +593,7 @@ library safelog {
 
     function log(address p0, uint256 p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -603,7 +603,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -612,7 +612,7 @@ library safelog {
 
     function log(address p0, uint256 p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -622,7 +622,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -631,7 +631,7 @@ library safelog {
 
     function log(address p0, uint256 p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -641,7 +641,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -657,7 +657,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -670,7 +670,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -688,7 +688,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -701,7 +701,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -719,7 +719,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -732,7 +732,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -750,7 +750,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -763,7 +763,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -781,7 +781,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -797,7 +797,7 @@ library safelog {
             writeString(0x80, p1)
             writeString(0xc0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -810,7 +810,7 @@ library safelog {
 
     function log(bool p0, address p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -820,7 +820,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -829,7 +829,7 @@ library safelog {
 
     function log(bool p0, address p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -839,7 +839,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -848,7 +848,7 @@ library safelog {
 
     function log(bool p0, address p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -858,7 +858,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -874,7 +874,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -887,7 +887,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -898,7 +898,7 @@ library safelog {
 
     function log(bool p0, bool p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -908,7 +908,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -917,7 +917,7 @@ library safelog {
 
     function log(bool p0, bool p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -927,7 +927,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -936,7 +936,7 @@ library safelog {
 
     function log(bool p0, bool p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -946,7 +946,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -962,7 +962,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -975,7 +975,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -986,7 +986,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -996,7 +996,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1005,7 +1005,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1015,7 +1015,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1024,7 +1024,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1034,7 +1034,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1050,7 +1050,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1063,7 +1063,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1081,7 +1081,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1094,7 +1094,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1112,7 +1112,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1125,7 +1125,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1143,7 +1143,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1156,7 +1156,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1174,7 +1174,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1190,7 +1190,7 @@ library safelog {
             writeString(0x80, p1)
             writeString(0xc0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1203,7 +1203,7 @@ library safelog {
 
     function log(uint256 p0, address p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1213,7 +1213,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1222,7 +1222,7 @@ library safelog {
 
     function log(uint256 p0, address p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1232,7 +1232,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1241,7 +1241,7 @@ library safelog {
 
     function log(uint256 p0, address p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1251,7 +1251,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1267,7 +1267,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1280,7 +1280,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1291,7 +1291,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1301,7 +1301,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1310,7 +1310,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1320,7 +1320,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1329,7 +1329,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1339,7 +1339,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1355,7 +1355,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1368,7 +1368,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1379,7 +1379,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, address p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1389,7 +1389,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1398,7 +1398,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, bool p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1408,7 +1408,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1417,7 +1417,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, uint256 p2) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1427,7 +1427,7 @@ library safelog {
             mstore(0x40, p1)
             mstore(0x60, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x64, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1443,7 +1443,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1456,7 +1456,7 @@ library safelog {
             mstore(0x60, 0x60)
             writeString(0x80, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1474,7 +1474,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1487,7 +1487,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1505,7 +1505,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1518,7 +1518,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1536,7 +1536,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1549,7 +1549,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1567,7 +1567,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1583,7 +1583,7 @@ library safelog {
             writeString(0x80, p1)
             writeString(0xc0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1603,7 +1603,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1616,7 +1616,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1634,7 +1634,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1647,7 +1647,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1665,7 +1665,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1678,7 +1678,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1696,7 +1696,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1712,7 +1712,7 @@ library safelog {
             writeString(0x80, p0)
             writeString(0xc0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1732,7 +1732,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1745,7 +1745,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1763,7 +1763,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1776,7 +1776,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1794,7 +1794,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1807,7 +1807,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1825,7 +1825,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1841,7 +1841,7 @@ library safelog {
             writeString(0x80, p0)
             writeString(0xc0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1861,7 +1861,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1874,7 +1874,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1892,7 +1892,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1905,7 +1905,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1923,7 +1923,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1936,7 +1936,7 @@ library safelog {
             mstore(0x60, p2)
             writeString(0x80, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xa4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1954,7 +1954,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -1970,7 +1970,7 @@ library safelog {
             writeString(0x80, p0)
             writeString(0xc0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -1990,7 +1990,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2006,7 +2006,7 @@ library safelog {
             writeString(0x80, p0)
             writeString(0xc0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2026,7 +2026,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2042,7 +2042,7 @@ library safelog {
             writeString(0x80, p0)
             writeString(0xc0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2062,7 +2062,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2078,7 +2078,7 @@ library safelog {
             writeString(0x80, p0)
             writeString(0xc0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xe4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2098,7 +2098,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2117,7 +2117,7 @@ library safelog {
             writeString(0xc0, p1)
             writeString(0x100, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x124, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2132,7 +2132,7 @@ library safelog {
 
     function log(address p0, address p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2144,7 +2144,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2154,7 +2154,7 @@ library safelog {
 
     function log(address p0, address p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2166,7 +2166,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2176,7 +2176,7 @@ library safelog {
 
     function log(address p0, address p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2188,7 +2188,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2205,7 +2205,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2220,7 +2220,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2232,7 +2232,7 @@ library safelog {
 
     function log(address p0, address p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2244,7 +2244,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2254,7 +2254,7 @@ library safelog {
 
     function log(address p0, address p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2266,7 +2266,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2276,7 +2276,7 @@ library safelog {
 
     function log(address p0, address p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2288,7 +2288,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2305,7 +2305,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2320,7 +2320,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2332,7 +2332,7 @@ library safelog {
 
     function log(address p0, address p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2344,7 +2344,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2354,7 +2354,7 @@ library safelog {
 
     function log(address p0, address p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2366,7 +2366,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2376,7 +2376,7 @@ library safelog {
 
     function log(address p0, address p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2388,7 +2388,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2405,7 +2405,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2420,7 +2420,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2439,7 +2439,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2454,7 +2454,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2473,7 +2473,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2488,7 +2488,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2507,7 +2507,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2522,7 +2522,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2541,7 +2541,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2559,7 +2559,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2573,7 +2573,7 @@ library safelog {
 
     function log(address p0, bool p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2585,7 +2585,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2595,7 +2595,7 @@ library safelog {
 
     function log(address p0, bool p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2607,7 +2607,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2617,7 +2617,7 @@ library safelog {
 
     function log(address p0, bool p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2629,7 +2629,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2646,7 +2646,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2661,7 +2661,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2673,7 +2673,7 @@ library safelog {
 
     function log(address p0, bool p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2685,7 +2685,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2695,7 +2695,7 @@ library safelog {
 
     function log(address p0, bool p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2707,7 +2707,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2717,7 +2717,7 @@ library safelog {
 
     function log(address p0, bool p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2729,7 +2729,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2746,7 +2746,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2761,7 +2761,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2773,7 +2773,7 @@ library safelog {
 
     function log(address p0, bool p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2785,7 +2785,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2795,7 +2795,7 @@ library safelog {
 
     function log(address p0, bool p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2807,7 +2807,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2817,7 +2817,7 @@ library safelog {
 
     function log(address p0, bool p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2829,7 +2829,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2846,7 +2846,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2861,7 +2861,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2880,7 +2880,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2895,7 +2895,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2914,7 +2914,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2929,7 +2929,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2948,7 +2948,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -2963,7 +2963,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -2982,7 +2982,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3000,7 +3000,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3014,7 +3014,7 @@ library safelog {
 
     function log(address p0, uint256 p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3026,7 +3026,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3036,7 +3036,7 @@ library safelog {
 
     function log(address p0, uint256 p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3048,7 +3048,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3058,7 +3058,7 @@ library safelog {
 
     function log(address p0, uint256 p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3070,7 +3070,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3087,7 +3087,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3102,7 +3102,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3114,7 +3114,7 @@ library safelog {
 
     function log(address p0, uint256 p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3126,7 +3126,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3136,7 +3136,7 @@ library safelog {
 
     function log(address p0, uint256 p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3148,7 +3148,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3158,7 +3158,7 @@ library safelog {
 
     function log(address p0, uint256 p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3170,7 +3170,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3187,7 +3187,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3202,7 +3202,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3214,7 +3214,7 @@ library safelog {
 
     function log(address p0, uint256 p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3226,7 +3226,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3236,7 +3236,7 @@ library safelog {
 
     function log(address p0, uint256 p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3248,7 +3248,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3258,7 +3258,7 @@ library safelog {
 
     function log(address p0, uint256 p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3270,7 +3270,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3287,7 +3287,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3302,7 +3302,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3321,7 +3321,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3336,7 +3336,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3355,7 +3355,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3370,7 +3370,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3389,7 +3389,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3404,7 +3404,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3423,7 +3423,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3441,7 +3441,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3462,7 +3462,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3477,7 +3477,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3496,7 +3496,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3511,7 +3511,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3530,7 +3530,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3545,7 +3545,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3564,7 +3564,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3582,7 +3582,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3603,7 +3603,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3618,7 +3618,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3637,7 +3637,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3652,7 +3652,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3671,7 +3671,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3686,7 +3686,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3705,7 +3705,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3723,7 +3723,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3744,7 +3744,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3759,7 +3759,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3778,7 +3778,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3793,7 +3793,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3812,7 +3812,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3827,7 +3827,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3846,7 +3846,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3864,7 +3864,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3885,7 +3885,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3903,7 +3903,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3924,7 +3924,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3942,7 +3942,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -3963,7 +3963,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -3981,7 +3981,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4002,7 +4002,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4023,7 +4023,7 @@ library safelog {
             writeString(0xe0, p2)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4039,7 +4039,7 @@ library safelog {
 
     function log(bool p0, address p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4051,7 +4051,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4061,7 +4061,7 @@ library safelog {
 
     function log(bool p0, address p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4073,7 +4073,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4083,7 +4083,7 @@ library safelog {
 
     function log(bool p0, address p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4095,7 +4095,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4112,7 +4112,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4127,7 +4127,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4139,7 +4139,7 @@ library safelog {
 
     function log(bool p0, address p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4151,7 +4151,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4161,7 +4161,7 @@ library safelog {
 
     function log(bool p0, address p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4173,7 +4173,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4183,7 +4183,7 @@ library safelog {
 
     function log(bool p0, address p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4195,7 +4195,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4212,7 +4212,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4227,7 +4227,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4239,7 +4239,7 @@ library safelog {
 
     function log(bool p0, address p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4251,7 +4251,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4261,7 +4261,7 @@ library safelog {
 
     function log(bool p0, address p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4273,7 +4273,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4283,7 +4283,7 @@ library safelog {
 
     function log(bool p0, address p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4295,7 +4295,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4312,7 +4312,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4327,7 +4327,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4346,7 +4346,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4361,7 +4361,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4380,7 +4380,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4395,7 +4395,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4414,7 +4414,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4429,7 +4429,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4448,7 +4448,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4466,7 +4466,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4480,7 +4480,7 @@ library safelog {
 
     function log(bool p0, bool p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4492,7 +4492,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4502,7 +4502,7 @@ library safelog {
 
     function log(bool p0, bool p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4514,7 +4514,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4524,7 +4524,7 @@ library safelog {
 
     function log(bool p0, bool p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4536,7 +4536,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4553,7 +4553,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4568,7 +4568,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4580,7 +4580,7 @@ library safelog {
 
     function log(bool p0, bool p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4592,7 +4592,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4602,7 +4602,7 @@ library safelog {
 
     function log(bool p0, bool p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4614,7 +4614,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4624,7 +4624,7 @@ library safelog {
 
     function log(bool p0, bool p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4636,7 +4636,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4653,7 +4653,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4668,7 +4668,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4680,7 +4680,7 @@ library safelog {
 
     function log(bool p0, bool p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4692,7 +4692,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4702,7 +4702,7 @@ library safelog {
 
     function log(bool p0, bool p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4714,7 +4714,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4724,7 +4724,7 @@ library safelog {
 
     function log(bool p0, bool p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4736,7 +4736,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4753,7 +4753,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4768,7 +4768,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4787,7 +4787,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4802,7 +4802,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4821,7 +4821,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4836,7 +4836,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4855,7 +4855,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4870,7 +4870,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4889,7 +4889,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4907,7 +4907,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4921,7 +4921,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4933,7 +4933,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4943,7 +4943,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4955,7 +4955,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4965,7 +4965,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -4977,7 +4977,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -4994,7 +4994,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5009,7 +5009,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5021,7 +5021,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5033,7 +5033,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5043,7 +5043,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5055,7 +5055,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5065,7 +5065,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5077,7 +5077,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5094,7 +5094,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5109,7 +5109,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5121,7 +5121,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5133,7 +5133,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5143,7 +5143,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5155,7 +5155,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5165,7 +5165,7 @@ library safelog {
 
     function log(bool p0, uint256 p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5177,7 +5177,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5194,7 +5194,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5209,7 +5209,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5228,7 +5228,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5243,7 +5243,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5262,7 +5262,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5277,7 +5277,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5296,7 +5296,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5311,7 +5311,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5330,7 +5330,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5348,7 +5348,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5369,7 +5369,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5384,7 +5384,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5403,7 +5403,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5418,7 +5418,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5437,7 +5437,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5452,7 +5452,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5471,7 +5471,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5489,7 +5489,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5510,7 +5510,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5525,7 +5525,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5544,7 +5544,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5559,7 +5559,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5578,7 +5578,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5593,7 +5593,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5612,7 +5612,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5630,7 +5630,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5651,7 +5651,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5666,7 +5666,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5685,7 +5685,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5700,7 +5700,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5719,7 +5719,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5734,7 +5734,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5753,7 +5753,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5771,7 +5771,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5792,7 +5792,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5810,7 +5810,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5831,7 +5831,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5849,7 +5849,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5870,7 +5870,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5888,7 +5888,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5909,7 +5909,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5930,7 +5930,7 @@ library safelog {
             writeString(0xe0, p2)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5946,7 +5946,7 @@ library safelog {
 
     function log(uint256 p0, address p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5958,7 +5958,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5968,7 +5968,7 @@ library safelog {
 
     function log(uint256 p0, address p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -5980,7 +5980,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -5990,7 +5990,7 @@ library safelog {
 
     function log(uint256 p0, address p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6002,7 +6002,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6019,7 +6019,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6034,7 +6034,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6046,7 +6046,7 @@ library safelog {
 
     function log(uint256 p0, address p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6058,7 +6058,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6068,7 +6068,7 @@ library safelog {
 
     function log(uint256 p0, address p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6080,7 +6080,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6090,7 +6090,7 @@ library safelog {
 
     function log(uint256 p0, address p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6102,7 +6102,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6119,7 +6119,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6134,7 +6134,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6146,7 +6146,7 @@ library safelog {
 
     function log(uint256 p0, address p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6158,7 +6158,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6168,7 +6168,7 @@ library safelog {
 
     function log(uint256 p0, address p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6180,7 +6180,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6190,7 +6190,7 @@ library safelog {
 
     function log(uint256 p0, address p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6202,7 +6202,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6219,7 +6219,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6234,7 +6234,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6253,7 +6253,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6268,7 +6268,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6287,7 +6287,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6302,7 +6302,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6321,7 +6321,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6336,7 +6336,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6355,7 +6355,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6373,7 +6373,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6387,7 +6387,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6399,7 +6399,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6409,7 +6409,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6421,7 +6421,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6431,7 +6431,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6443,7 +6443,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6460,7 +6460,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6475,7 +6475,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6487,7 +6487,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6499,7 +6499,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6509,7 +6509,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6521,7 +6521,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6531,7 +6531,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6543,7 +6543,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6560,7 +6560,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6575,7 +6575,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6587,7 +6587,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6599,7 +6599,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6609,7 +6609,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6621,7 +6621,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6631,7 +6631,7 @@ library safelog {
 
     function log(uint256 p0, bool p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6643,7 +6643,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6660,7 +6660,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6675,7 +6675,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6694,7 +6694,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6709,7 +6709,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6728,7 +6728,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6743,7 +6743,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6762,7 +6762,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6777,7 +6777,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6796,7 +6796,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6814,7 +6814,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6828,7 +6828,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, address p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6840,7 +6840,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6850,7 +6850,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, address p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6862,7 +6862,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6872,7 +6872,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, address p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6884,7 +6884,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6901,7 +6901,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6916,7 +6916,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6928,7 +6928,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, bool p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6940,7 +6940,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6950,7 +6950,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, bool p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6962,7 +6962,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -6972,7 +6972,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, bool p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -6984,7 +6984,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7001,7 +7001,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7016,7 +7016,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7028,7 +7028,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, uint256 p2, address p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7040,7 +7040,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7050,7 +7050,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, uint256 p2, bool p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7062,7 +7062,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7072,7 +7072,7 @@ library safelog {
 
     function log(uint256 p0, uint256 p1, uint256 p2, uint256 p3) internal view {
         assembly {
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7084,7 +7084,7 @@ library safelog {
             mstore(0x60, p2)
             mstore(0x80, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x84, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7101,7 +7101,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7116,7 +7116,7 @@ library safelog {
             mstore(0x80, 0x80)
             writeString(0xa0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7135,7 +7135,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7150,7 +7150,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7169,7 +7169,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7184,7 +7184,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7203,7 +7203,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7218,7 +7218,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7237,7 +7237,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7255,7 +7255,7 @@ library safelog {
             writeString(0xa0, p2)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7276,7 +7276,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7291,7 +7291,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7310,7 +7310,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7325,7 +7325,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7344,7 +7344,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7359,7 +7359,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7378,7 +7378,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7396,7 +7396,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7417,7 +7417,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7432,7 +7432,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7451,7 +7451,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7466,7 +7466,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7485,7 +7485,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7500,7 +7500,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7519,7 +7519,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7537,7 +7537,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7558,7 +7558,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7573,7 +7573,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7592,7 +7592,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7607,7 +7607,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7626,7 +7626,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7641,7 +7641,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7660,7 +7660,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7678,7 +7678,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7699,7 +7699,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7717,7 +7717,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7738,7 +7738,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7756,7 +7756,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7777,7 +7777,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7795,7 +7795,7 @@ library safelog {
             writeString(0xa0, p1)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7816,7 +7816,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7837,7 +7837,7 @@ library safelog {
             writeString(0xe0, p2)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7860,7 +7860,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7875,7 +7875,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7894,7 +7894,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7909,7 +7909,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7928,7 +7928,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7943,7 +7943,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -7962,7 +7962,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -7980,7 +7980,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8001,7 +8001,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8016,7 +8016,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8035,7 +8035,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8050,7 +8050,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8069,7 +8069,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8084,7 +8084,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8103,7 +8103,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8121,7 +8121,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8142,7 +8142,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8157,7 +8157,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8176,7 +8176,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8191,7 +8191,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8210,7 +8210,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8225,7 +8225,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8244,7 +8244,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8262,7 +8262,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8283,7 +8283,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8301,7 +8301,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8322,7 +8322,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8340,7 +8340,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8361,7 +8361,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8379,7 +8379,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8400,7 +8400,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8421,7 +8421,7 @@ library safelog {
             writeString(0xe0, p2)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8444,7 +8444,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8459,7 +8459,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8478,7 +8478,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8493,7 +8493,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8512,7 +8512,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8527,7 +8527,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8546,7 +8546,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8564,7 +8564,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8585,7 +8585,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8600,7 +8600,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8619,7 +8619,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8634,7 +8634,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8653,7 +8653,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8668,7 +8668,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8687,7 +8687,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8705,7 +8705,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8726,7 +8726,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8741,7 +8741,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8760,7 +8760,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8775,7 +8775,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8794,7 +8794,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8809,7 +8809,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8828,7 +8828,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8846,7 +8846,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8867,7 +8867,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8885,7 +8885,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8906,7 +8906,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8924,7 +8924,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8945,7 +8945,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -8963,7 +8963,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -8984,7 +8984,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9005,7 +9005,7 @@ library safelog {
             writeString(0xe0, p2)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9028,7 +9028,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9043,7 +9043,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9062,7 +9062,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9077,7 +9077,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9096,7 +9096,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9111,7 +9111,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9130,7 +9130,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9148,7 +9148,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9169,7 +9169,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9184,7 +9184,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9203,7 +9203,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9218,7 +9218,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9237,7 +9237,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9252,7 +9252,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9271,7 +9271,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9289,7 +9289,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9310,7 +9310,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9325,7 +9325,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9344,7 +9344,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9359,7 +9359,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9378,7 +9378,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9393,7 +9393,7 @@ library safelog {
             mstore(0x80, p3)
             writeString(0xa0, p0)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0xc4, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9412,7 +9412,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9430,7 +9430,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9451,7 +9451,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9469,7 +9469,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9490,7 +9490,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9508,7 +9508,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9529,7 +9529,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9547,7 +9547,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9568,7 +9568,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9589,7 +9589,7 @@ library safelog {
             writeString(0xe0, p2)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9612,7 +9612,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9630,7 +9630,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9651,7 +9651,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9669,7 +9669,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9690,7 +9690,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9708,7 +9708,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9729,7 +9729,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9750,7 +9750,7 @@ library safelog {
             writeString(0xe0, p1)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9773,7 +9773,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9791,7 +9791,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9812,7 +9812,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9830,7 +9830,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9851,7 +9851,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9869,7 +9869,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9890,7 +9890,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9911,7 +9911,7 @@ library safelog {
             writeString(0xe0, p1)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9934,7 +9934,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9952,7 +9952,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -9973,7 +9973,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -9991,7 +9991,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -10012,7 +10012,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -10030,7 +10030,7 @@ library safelog {
             writeString(0xa0, p0)
             writeString(0xe0, p1)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x104, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -10051,7 +10051,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -10072,7 +10072,7 @@ library safelog {
             writeString(0xe0, p1)
             writeString(0x120, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -10095,7 +10095,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -10116,7 +10116,7 @@ library safelog {
             writeString(0xe0, p1)
             writeString(0x120, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -10139,7 +10139,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -10160,7 +10160,7 @@ library safelog {
             writeString(0xe0, p1)
             writeString(0x120, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -10183,7 +10183,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -10204,7 +10204,7 @@ library safelog {
             writeString(0xe0, p1)
             writeString(0x120, p2)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x144, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)
@@ -10227,7 +10227,7 @@ library safelog {
                 let shift := sub(256, shl(3, length))
                 mstore(add(pos, 0x20), shl(shift, shr(shift, w)))
             }
-            let m0 := mload(0x0)
+            let m0 := mload(0x00)
             let m1 := mload(0x20)
             let m2 := mload(0x40)
             let m3 := mload(0x60)
@@ -10251,7 +10251,7 @@ library safelog {
             writeString(0x120, p2)
             writeString(0x160, p3)
             pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x184, 0x0, 0x0))
-            mstore(0x0, m0)
+            mstore(0x00, m0)
             mstore(0x20, m1)
             mstore(0x40, m2)
             mstore(0x60, m3)

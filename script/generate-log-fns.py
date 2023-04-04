@@ -65,10 +65,10 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
         params = []
         total_words = 1 + len(sig_args)
         for i, arg_type in enumerate(sig_args):
-            offset = f'0x{0x20 + i * 0x20:x}'
+            offset = f'0x{0x20 + i * 0x20:02x}'
             if arg_type == 'string':
                 strings.append(StringMstore(str_offset, i))
-                params.append(f'mstore({offset}, 0x{str_offset:x})\n')
+                params.append(f'mstore({offset}, 0x{str_offset:02x})\n')
                 str_offset += 0x40
                 log_args.append(f'bytes32 p{i}')
                 total_words += 2
@@ -78,7 +78,7 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
 
         mem_preserve = indent(
             ''.join(
-                f'let m{i} := mload(0x{0x20 * i:x})\n'
+                f'let m{i} := mload(0x{0x20 * i:02x})\n'
                 for i in range(total_words)
             ), 2)
         sig = f'log({",".join(sig_args)})'
@@ -90,14 +90,14 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
         )
         str_writes = indent(
             ''.join(
-                f'writeString(0x{base_offset + 0x20:x}, p{i})\n'
+                f'writeString(0x{base_offset + 0x20:02x}, p{i})\n'
                 for base_offset, i in strings
             ),
             2
         )
         mem_restores = indent(
             ''.join(
-                f'mstore(0x{0x20 * i:x}, m{i})\n'
+                f'mstore(0x{0x20 * i:02x}, m{i})\n'
                 for i in range(total_words)
             ),
             2
@@ -113,7 +113,7 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
 {mem_preserve}\
 {param_writes}\
 {str_writes}\
-        pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x{data_length:x}, 0x0, 0x0))
+        pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x{data_length:02x}, 0x0, 0x0))
 {mem_restores}\
     }}
 }}
