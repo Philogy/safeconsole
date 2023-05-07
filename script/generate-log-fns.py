@@ -76,9 +76,15 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
                 params.append(f'mstore({offset}, p{i})\n')
                 log_args.append(f'{arg_type} p{i}')
 
+        mem_var_defs = indent(
+            ''.join(
+                f'bytes32 m{i};\n'
+                for i in range(total_words)
+            ), 2)
+
         mem_preserve = indent(
             ''.join(
-                f'let m{i} := mload(0x{0x20 * i:02x})\n'
+                f'm{i} := mload(0x{0x20 * i:02x})\n'
                 for i in range(total_words)
             ), 2)
         sig = f'log({",".join(sig_args)})'
@@ -107,13 +113,16 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
 
         funcs.append(
             indent(
-                f'''function log({", ".join(log_args)}) internal view {{
+                f'''function log({", ".join(log_args)}) internal pure {{
+{mem_var_defs}\
     assembly {{
 {indent(WRITE_STRING_FN, 2) if strings else ""}\
 {mem_preserve}\
 {param_writes}\
 {str_writes}\
-        pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, 0x{data_length:02x}, 0x0, 0x0))
+    }}
+    _getLog()(0x{data_length:02x});
+    assembly {{
 {mem_restores}\
     }}
 }}
@@ -131,6 +140,21 @@ pragma solidity ^0.8.0;
 /// @dev Code generated automatically by script.
 library safelog {{
     uint256 constant CONSOLE_ADDR = 0x000000000000000000000000000000000000000000636F6e736F6c652e6c6f67;
+
+    function _viewCallLog(uint256 psize) private view {{
+        assembly {{
+            pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, psize, 0x0, 0x0))
+        }}
+    }}
+
+    // Credit to [0age](https://twitter.com/z0age/status/1654922202930888704) and [0xdapper](https://github.com/foundry-rs/forge-std/pull/374)
+    // for the view-to-pure log trick.
+    function _getLog() private pure returns(function(uint256) internal pure logFn) {{
+        function(uint256) internal view viewLog = _viewCallLog;
+        assembly {{
+            logFn := viewLog
+        }}
+    }}
 
 {LINE_BREAK.join(funcs)}
 }}
