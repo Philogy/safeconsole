@@ -121,7 +121,7 @@ for arg_count in range(1, MAX_ARG_COUNT + 1):
 {param_writes}\
 {str_writes}\
     }}
-    _getLog()(0x{data_length:02x});
+    _sendLogPayload(0x1c, 0x{data_length:02x});
     assembly {{
 {mem_restores}\
     }}
@@ -141,18 +141,25 @@ pragma solidity ^0.8.0;
 library safelog {{
     uint256 constant CONSOLE_ADDR = 0x000000000000000000000000000000000000000000636F6e736F6c652e6c6f67;
 
-    function _viewCallLog(uint256 psize) private view {{
+    // Credit to [0age](https://twitter.com/z0age/status/1654922202930888704) and [0xdapper](https://github.com/foundry-rs/forge-std/pull/374)
+    // for the view-to-pure log trick.
+    function _castLogPayloadViewToPure(function(uint256, uint256) internal view fnIn)
+        private
+        pure
+        returns (function(uint256, uint256) internal pure fnOut)
+    {{
         assembly {{
-            pop(staticcall(gas(), CONSOLE_ADDR, 0x1c, psize, 0x0, 0x0))
+            fnOut := fnIn
         }}
     }}
 
-    // Credit to [0age](https://twitter.com/z0age/status/1654922202930888704) and [0xdapper](https://github.com/foundry-rs/forge-std/pull/374)
-    // for the view-to-pure log trick.
-    function _getLog() private pure returns(function(uint256) internal pure logFn) {{
-        function(uint256) internal view viewLog = _viewCallLog;
+    function _sendLogPayload(uint256 offset, uint256 size) private pure {{
+        _castLogPayloadViewToPure(_sendLogPayloadView)(offset, size);
+    }}
+
+    function _sendLogPayloadView(uint256 offset, uint256 size) private view {{
         assembly {{
-            logFn := viewLog
+            pop(staticcall(gas(), CONSOLE_ADDR, offset, size, 0x0, 0x0))
         }}
     }}
 
