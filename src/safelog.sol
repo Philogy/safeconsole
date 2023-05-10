@@ -28,6 +28,70 @@ library safelog {
         }
     }
 
+    function _memcopy(uint256 fromOffset, uint256 toOffset, uint256 length) private pure {
+        function(uint256, uint256, uint) internal view fnIn = _memcopyView;
+        function(uint256, uint256, uint) internal pure pureMemcopy;
+        assembly {
+            pureMemcopy := fnIn
+        }
+        pureMemcopy(fromOffset, toOffset, length);
+    }
+
+    function _memcopyView(uint256 fromOffset, uint256 toOffset, uint256 length) private view {
+        assembly {
+            pop(staticcall(gas(), 0x4, fromOffset, length, toOffset, length))
+        }
+    }
+
+    function logMemory(uint256 offset, uint256 length) internal pure {
+        if (offset >= 0x60) {
+            // Sufficient memory before slice to prepare call header.
+            bytes32 m0;
+            bytes32 m1;
+            bytes32 m2;
+            assembly {
+                m0 := mload(sub(offset, 0x60))
+                m1 := mload(sub(offset, 0x40))
+                m2 := mload(sub(offset, 0x20))
+                // Selector of `logBytes(bytes)`.
+                mstore(sub(offset, 0x60), 0xe17bf956)
+                mstore(sub(offset, 0x40), 0x20)
+                mstore(sub(offset, 0x20), length)
+            }
+            _sendLogPayload(offset - 0x44, length + 0x44);
+            assembly {
+                mstore(sub(offset, 0x60), m0)
+                mstore(sub(offset, 0x40), m1)
+                mstore(sub(offset, 0x20), m2)
+            }
+        } else {
+            // Insufficient space, so copy slice forward, add header and reverse.
+            bytes32 m0;
+            bytes32 m1;
+            bytes32 m2;
+            uint256 endOffset = offset + length;
+            assembly {
+                m0 := mload(add(endOffset, 0x00))
+                m1 := mload(add(endOffset, 0x20))
+                m2 := mload(add(endOffset, 0x40))
+            }
+            _memcopy(offset, offset + 0x60, length);
+            assembly {
+                // Selector of `logBytes(bytes)`.
+                mstore(add(offset, 0x00), 0xe17bf956)
+                mstore(add(offset, 0x20), 0x20)
+                mstore(add(offset, 0x40), length)
+            }
+            _sendLogPayload(offset + 0x1c, length + 0x44);
+            _memcopy(offset + 0x60, offset, length);
+            assembly {
+                mstore(add(endOffset, 0x00), m0)
+                mstore(add(endOffset, 0x20), m1)
+                mstore(add(endOffset, 0x40), m2)
+            }
+        }
+    }
+
     function log(address p0) internal pure {
         bytes32 m0;
         bytes32 m1;
