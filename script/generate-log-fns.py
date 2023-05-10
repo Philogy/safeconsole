@@ -143,18 +143,13 @@ library safelog {{
 
     // Credit to [0age](https://twitter.com/z0age/status/1654922202930888704) and [0xdapper](https://github.com/foundry-rs/forge-std/pull/374)
     // for the view-to-pure log trick.
-    function _castLogPayloadViewToPure(function(uint256, uint256) internal view fnIn)
-        private
-        pure
-        returns (function(uint256, uint256) internal pure fnOut)
-    {{
-        assembly {{
-            fnOut := fnIn
-        }}
-    }}
-
     function _sendLogPayload(uint256 offset, uint256 size) private pure {{
-        _castLogPayloadViewToPure(_sendLogPayloadView)(offset, size);
+        function(uint256, uint256) internal view fnIn = _sendLogPayloadView;
+        function(uint256, uint256) internal pure pureSendLogPayload;
+        assembly {{
+            pureSendLogPayload := fnIn
+        }}
+        pureSendLogPayload(offset, size);
     }}
 
     function _sendLogPayloadView(uint256 offset, uint256 size) private view {{
