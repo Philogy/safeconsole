@@ -8,6 +8,22 @@ not allocate any memory unexpectedly the `safeconsole.log` functions accept `byt
 of `string`s as they are kept on the stack. This means that the string part of log messages will
 have to be resricted to 32-character chunks.
 
+**`logMemory`**
+
+Besides the standard logging functions that can take various combinations of up to 4 `bytes32`,
+`bool`, `address` and `uint256` arguments `safeconsole` also has a `logMemory(uint256 offset, uint256 length)`
+function that allows you to log a chunk of memory without modifying the state of memory:
+
+```solidity
+assembly {
+    mstore(0x00, 1)
+    mstore(0x20, 2)
+}
+safeconsole.logMemory(0x00, 0x40);
+
+// > 0x00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002
+```
+
 
 ## Installation
 
