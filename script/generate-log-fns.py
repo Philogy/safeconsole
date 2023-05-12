@@ -138,7 +138,7 @@ pragma solidity ^0.8.0;
 
 /// @author philogy <https://github.com/philogy>
 /// @dev Code generated automatically by script.
-library safelog {{
+library safeconsole {{
     uint256 constant CONSOLE_ADDR = 0x000000000000000000000000000000000000000000636F6e736F6c652e6c6f67;
 
     // Credit to [0age](https://twitter.com/z0age/status/1654922202930888704) and [0xdapper](https://github.com/foundry-rs/forge-std/pull/374)
@@ -228,7 +228,7 @@ library safelog {{
 '''
 
 script_dir = os.path.dirname(__file__)
-fp = os.path.join(script_dir, '../src/safelog.sol')
+fp = os.path.join(script_dir, '../src/safeconsole.sol')
 normed_fp = os.path.normpath(fp)
 with open(normed_fp, 'w') as f:
     f.write(safelog_code)
